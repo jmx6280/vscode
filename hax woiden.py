@@ -42,5 +42,5 @@ while True:
     result4 = get_woiden()
     bj_hax(result3,result1)
     bj_woiden(result4,result2)
-    result1 = result3
-    result2 = result4
+    result1 = result3.insert(0,'-select-')
+    result2 = result4.insert(0,'-select-')
