@@ -13,14 +13,16 @@ def get_hax():
     html1 = etree.HTML(response1.text)
     divs1 = html1.xpath('/html/body/main/div/div/div[2]/div/div/div/div/div/form/div[1]')
     for div1 in divs1:
-        dc1 = div1.xpath('./select/option[position>1]/text()')
+        dc1 = div1.xpath('./select/option/text()')
+        dc1.pop(0)
     return dc1
 def get_woiden():
     response2 = requests.get(url=url2,headers=headers)
     html2 = etree.HTML(response2.text)
     divs2 = html2.xpath('/html/body/main/div/div/div[2]/div/div/div/div/div/form/div[1]')
     for div2 in divs2:
-        dc2 = div2.xpath('./select/option[position>1]/text()')
+        dc2 = div2.xpath('./select/option/text()')
+        dc2.pop(0)
     return dc2
 def bj_hax(result3,result1):
     if result3 != result1:
