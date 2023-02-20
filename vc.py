@@ -13,17 +13,16 @@ def get_vc():
     html = etree.HTML(response.text)
     divs = html.xpath('/html/body/main/div[1]/div/div[4]/div/div/div/div/div/form/div[1]')
     for div in divs:
-        dc = div.xpath('./select/option/text()')
+        dc = div.xpath('./select/option[position>1]/text()')
     return dc
 def bj_vc(result2,result1):
     if result2 != result1:
-        result2.pop(0)
         print(result2)
     else:
         pass
 result1 = get_vc()
 while True:
-    time.sleep(10)
+    time.sleep(20)
     result2 = get_vc()
     bj_vc(result2,result1)
-    result1 = result2.insert(0,'-select-')
+    result1 = result2
